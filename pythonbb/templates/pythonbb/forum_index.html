@@ -1,0 +1,32 @@
+{% extends "pythonbb/base.html" %} {% block title %}
+<title>Threads</title>
+{% endblock title %} {% block content %}
+
+<h1>{{forum.title}}</h1>
+<h3>{{forum.description}}</h3>
+
+<form action="{% url 'pythonbb:forum-update' forum.slug %}" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Modifier les paramètres du forum" />
+</form>
+
+{% for thread in threads %}
+
+<li>
+  <a
+    href="{% url 'pythonbb:thread-index' forum_slug=forum.slug thread_slug=thread.slug %}"
+  >
+    {{thread.title}}
+  </a>
+</li>
+
+<button onclick="window.location.href='{% url 'pythonbb:thread-delete' forum.slug thread.slug %}';" class="delete-btn">Supprimer thread</button>
+
+{% endfor %}
+
+<form action="{% url 'pythonbb:create-thread' forum.slug %}" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Créer un thread" />
+</form>
+
+{% endblock content %}

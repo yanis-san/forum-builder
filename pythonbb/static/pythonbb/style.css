@@ -1,0 +1,60 @@
+body {
+  background-color: rgb(50, 85, 113);
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.forum-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.forum-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+}
+
+#create-forum-btn {
+  font-size: 24px;
+  margin-top: 20px;
+  color: white;
+  background-color: #14532d;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 24px;
+  margin: 20px;
+}
+
+.forum-logo {
+  width: 5rem;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.forum-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.forum-list li .forum-link {
+  margin-left: auto;
+}

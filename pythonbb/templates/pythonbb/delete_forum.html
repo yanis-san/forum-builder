@@ -1,0 +1,16 @@
+{% extends "pythonbb/base.html" %}
+
+{% block title %}
+<title> Supprimer un forum</title>
+{% endblock title %}
+
+{% block content %}
+
+<form method="POST" ">
+{% csrf_token %}
+<p>Voulez-vous vraiment supprimer ce forum ?</p>
+<input type="submit" value="Oui, supprimer">
+
+    </form>
+
+{% endblock content %}

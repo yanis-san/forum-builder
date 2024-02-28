@@ -1,0 +1,35 @@
+{% extends "pythonbb/base.html" %}
+
+{% block title %}
+<title>{{ thread.title }}</title>
+{% endblock title %}
+
+{% block content %}
+
+<h1>{{ thread.title }}</h1>
+
+{% for message in messages %}
+  <div>
+    {% if not message.ban %}
+      <p>{{ message.content }}</p>
+      {% if user.is_authenticated %}
+      {% if is_admin or is_modo %}
+      <form action="{% url 'pythonbb:message-ban' forum_slug=forum_slug thread_slug=thread_slug message_id=message.id %}" method="POST" style="display: inline;">
+        {% csrf_token %}
+        <input type="submit" value="Ban">
+      </form>
+    {% endif %}
+      {% endif %}
+    {% else %}
+      <p><em>Ce message a été banni.</em></p>
+    {% endif %}
+  </div>
+{% endfor %}
+
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Publier le message">
+</form>
+
+{% endblock content %}

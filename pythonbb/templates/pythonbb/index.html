@@ -1,0 +1,39 @@
+{% extends "pythonbb/base.html" %}
+
+{% block title %}
+<title>Accueil</title>
+{% endblock title %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<section class="forum-list">
+  <ul>
+    {% for forum in forums %}
+    <li>
+      <div class="forum-item"> 
+        {% if forum.image %}
+          <img src="{{ forum.image.url }}" alt="{{ forum.title }}" class="forum-logo">
+        {% endif %}
+        <a href="{% url 'pythonbb:forum' forum.slug %}" class="forum-link">{{ forum.title }}</a>
+      </div>
+      {% for user_forum in forum.userforum_set.all %}
+        {% if user_forum.groupe.name == "Administrateur" and user_forum.user == request.user %}
+        <button onclick="window.location.href='{% url 'pythonbb:forum-delete' forum.slug %}';" class="delete-btn">Supprimer le forum</button>
+        {% endif %}
+      {% endfor %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<button id="create-forum-btn" onclick="window.location.href='{% url 'pythonbb:create-forum' %}'">
+  Créer un Forum
+</button>
+
+{% else %}
+
+<h2>Tu n'es pas connecté</h2>
+<a href="{% url 'authentication:login' %}" class="login-link">Connecte toi !</a>
+{% endif %}
+{% endblock content %}

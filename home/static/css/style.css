@@ -1,0 +1,14 @@
+body {
+  background-color: steelblue;
+}
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.home-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}

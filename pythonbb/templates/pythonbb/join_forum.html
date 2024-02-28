@@ -1,0 +1,9 @@
+{% extends "pythonbb/base.html" %} {% block content %}
+
+<h1>{{forum.title}}</h1>
+{% if not user_forum %}
+<a href="{% url 'pythonbb:join-forum' forum.slug %}">Rejoindre le forum</a>
+
+{% else %}
+<p>Vous êtes déja membre</p>
+{% endif %} {% endblock content %}

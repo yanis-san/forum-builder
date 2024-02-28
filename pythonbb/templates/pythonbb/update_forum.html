@@ -1,0 +1,22 @@
+{% extends "pythonbb/base.html" %}
+
+{% block title %}
+<title> Modifier un forum</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>Modifier les informations du forum</h1>
+
+    <form action="{% url 'pythonbb:forum-update' forum.slug %}" method="post">
+        {% csrf_token %}
+
+        <label for="title">Titre</label>
+        <input type="text" name="title" id="title" value="{{ forum.title }}">
+
+        <label for="description">Description</label>
+        <textarea name="description" id="description" cols="30" rows="10">{{ forum.description }}</textarea>
+
+        <input type="submit" value="Modifier">
+    </form>
+
+    {% endblock content %}

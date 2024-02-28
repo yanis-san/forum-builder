@@ -1,0 +1,16 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+
+
+
+<section class="home-link">
+
+    <button onclick="window.location.href='{% url 'pythonbb:index' %}'">Forum</button>
+    <button onclick="window.location.href='{% url 'authentication:login' %}'">Se connecter</button>
+    <button onclick="window.location.href='{% url 'authentication:signup-forum' %}'">S'inscrire</button>
+    
+</section>
+    
+
+{% endblock content %}

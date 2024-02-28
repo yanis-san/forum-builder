@@ -1,0 +1,20 @@
+{% extends "pythonbb/base.html" %}
+
+
+{% block title %}
+<title>Créer un thread</title>
+
+{% endblock title %}
+
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Créer le thread">
+
+</form>
+
+
+{% endblock content %}
