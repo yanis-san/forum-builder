@@ -45,12 +45,12 @@ Forum Builder is a system designed to create and manage online forums similar to
     Start the application to manage forums, users, and topics. The frontend of the project has not been completed, so you may interact with the system via the command line or through the minimal web interface.
 
     ```bash
-    python app.py
+    python manage.py runserver
     ```
 
 2. Access the Application:
 
-    If a web interface is provided, navigate to [http://localhost:8000](http://localhost:8000) to interact with the application.
+    Navigate to [http://localhost:8000](http://localhost:8000) to interact with the application.
 
 ## Notes
 
